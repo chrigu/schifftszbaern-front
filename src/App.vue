@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view></router-view>
   </div>
 </template>
@@ -11,6 +10,8 @@ export default {
 }
 </script>
 
+<style src="./assets/main.scss" lang="scss"></style>
+
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -18,6 +19,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

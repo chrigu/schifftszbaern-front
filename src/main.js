@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import { ApolloClient, createNetworkInterface } from 'apollo-client'
 import VueApollo from 'vue-apollo'
-import { graphCoolEndPoint } from 'const';
+import { graphCoolEndPoint } from './const'
 
 Vue.config.productionTip = false
 
