@@ -3,8 +3,10 @@ $element-list: sun moon clouds rain snow fog;
 $color-sun: rgba(255, 255, 144, 1);
 $color-light-blue: rgba(217, 242, 255, 1);
 $color-lighter-gray: rgba(153, 153, 153, 1);
+$color-very-light-gray: rgba(200, 200, 200, 1);
 $color-gray: rgba(153, 153, 153, 1);
 $color-cloud-gray: rgba(136, 136, 136, 1);
+
 
 @keyframes rotating {
   from {
@@ -57,7 +59,7 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
     }
 }
 
-.raindrop{
+.raindrop {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     transform-origin: 50% 50%;
@@ -126,7 +128,8 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
     }
 }
 
-.berne-fog {
+.fog {
+    fill: $color-very-light-gray;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     transform-origin: 50% 50%;

@@ -107,13 +107,7 @@ export default {
         }
       }
 
-      // return this.allWeatherLocations[0]
-      return {
-        intensity: -1,
-        createdAt: null,
-        weatherCode: 18,
-        temperature: 20
-      }
+      return this.allWeatherLocations[0]
     },
     schifftsMessage: function () {
       if (this.schifftsData.intensity > -1) {
@@ -132,7 +126,13 @@ export default {
       return this.showSunOrMoon(this.schifftsData.weatherCode) && this.night
     },
     fog: function () {
-      return this.showFog(this.schifftsData.weatherCode)
+      switch (this.normalizeCode(this.schifftsData.weatherCode)) {
+        case 27:
+        case 28:
+          return true
+        default:
+          return false
+      }
     },
     rain: function () {
       switch (this.normalizeCode(this.schifftsData.weatherCode)) {
@@ -150,6 +150,10 @@ export default {
         case 24:
         case 25:
         case 29:
+        case 30:
+        case 31:
+        case 32:
+        case 33:
           return true
         default:
           return false
@@ -165,6 +169,9 @@ export default {
         case 18:
         case 19:
         case 22:
+        case 30:
+        case 31:
+        case 34:
           return true
         default:
           return false
@@ -189,6 +196,11 @@ export default {
         case 24:
         case 25:
         case 29:
+        case 30:
+        case 31:
+        case 32:
+        case 33:
+        case 34:
         case 6:
         case 7:
         case 8:
@@ -206,6 +218,11 @@ export default {
       switch (this.normalizeCode(this.schifftsData.weatherCode)) {
         case 2:
         case 3:
+        case 30:
+        case 31:
+        case 32:
+        case 33:
+        case 34:
           return true
         default:
           return false
@@ -231,6 +248,11 @@ export default {
         case 10:
         case 11:
         case 29:
+        case 30:
+        case 31:
+        case 32:
+        case 33:
+        case 34:
           return true
         default:
           return false
