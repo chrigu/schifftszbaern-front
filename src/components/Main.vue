@@ -51,12 +51,13 @@
 // states > 100 are night states
 
 <template>
-<div class="main" v-bind:class="{ 'main--bad-weather': !this.sun, 
+<div class="main" v-bind:class="{ 'main--bad-weather': !this.sun,
                                   'main--night': this.night }">
   <div class="block">
     <div class="centered">
       <p class="current-situation"></p>
-      <city v-bind="{
+      <city v-if="gotData"
+            v-bind="{
               sun: sun,
               moon: moon,
               night: night,
@@ -66,8 +67,9 @@
               clouds: clouds,
               'light-clouds': lightClouds
             }"></city>
+      <p class="loading-message" v-if="!gotData">Bi no am Lade, gäu</p>
     </div>
-  </div> 
+  </div>
 
   <section class="info">
     <div class="arrow"></div>
@@ -87,13 +89,20 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+
 import City from './City.vue'
+import { WEATHER_LOCATION, WEATHER_LOCATION_SUBSCRIPTION } from '../constants/graphql'
 
 export default {
   name: 'bern',
   components: {
     City
+  },
+  data () {
+    return {
+      allWeatherLocations: [],
+      gotData: false
+    }
   },
   computed: {
     schifftsData: function () {
@@ -105,6 +114,8 @@ export default {
           weatherCode: 1,
           temperature: 20
         }
+      } else {
+        this.gotData = true
       }
 
       return this.allWeatherLocations[0]
@@ -229,11 +240,6 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      allWeatherLocations: []
-    }
-  },
   methods: {
     showSunOrMoon: function (code) {
       const normalizedCode = this.normalizeCode(code)
@@ -275,16 +281,17 @@ export default {
   },
   apollo: {
   // Simple query that will update the 'hello' vue property
-    allWeatherLocations: gql`
-        query {
-        allWeatherLocations(last: 1) {
-            createdAt
-            intensity
-            temperature
-            weatherCode
+    allWeatherLocations: {
+      query: WEATHER_LOCATION,
+      subscribeToMore: {
+        document: WEATHER_LOCATION_SUBSCRIPTION,
+        updateQuery: (previous, { subscriptionData }) => {
+          return {
+            allWeatherLocations: [subscriptionData.data.WeatherLocation.node]
+          }
         }
+      }
     }
-  `
   }
 }
 </script>
