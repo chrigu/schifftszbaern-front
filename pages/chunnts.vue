@@ -50,9 +50,9 @@ export default {
     updateSubscription() {
       this.getSubscriptionState().then((state) => {
         if (state.isPushEnabled) {
+          this.setBackgroundClass(false)
           this.$OneSignal.push(() => {
             this.$OneSignal.setSubscription(false)
-            this.setBackgroundClass(false)
           })
         } else {
             this.setBackgroundClass(true)
@@ -61,7 +61,7 @@ export default {
                 this.$OneSignal.setSubscription(true)
               })
             } else {
-                this.$OneSignal.push(["registerForPushNotifications"])
+              this.$OneSignal.push(["registerForPushNotifications"])
             }
         }
       })
@@ -78,6 +78,7 @@ export default {
         ]).then(function(result) {
             const isPushEnabled = result[0]
             const isOptedOut = result[1]
+            console.log(result)
             return {
                 isPushEnabled,
                 isOptedOut
