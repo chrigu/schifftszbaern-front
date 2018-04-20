@@ -1,0 +1,16 @@
+.chunnts {
+    transition: background-color 0.5s ease;
+    background-color: $cloud-gray-lighter;
+
+    &--subscribed {
+        background-color: $sky-blue-lighter;
+    }
+}
+
+.forecast-content {
+    &__image {
+        max-width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

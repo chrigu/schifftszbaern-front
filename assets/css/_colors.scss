@@ -1,0 +1,7 @@
+$sky_blue: rgba(88, 198, 255, 1.0);
+$cloud_gray: rgba(192, 192, 192, 1.0);
+$night_sky: rgba(10, 20, 100, 1);
+
+// lighter hues
+$cloud-gray-lighter: lighten($cloud_gray, 10%);
+$sky-blue-lighter: lighten($sky_blue, 10%);

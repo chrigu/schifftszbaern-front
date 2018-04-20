@@ -1,19 +1,21 @@
 <template>
-  <section class="container">
-      <navigation></navigation>
-      <div class="fl w-100 pa2">
-        <h1 class="f2 lh-copy tc">Chunnts z'Bärn äch cho schiffe?</h1>
-      </div>
-      <div v-if="isPushSupported" class="fl w-100 pa2">
-        <div class="center">
-          <a class="f6 link dim ph3 pv2 mb2 dib white bg-blue" @click="updateSubscription()" ahref="#0">{{buttonText}}</a>
-          <img class="db mt3" src="~/assets/images/chunnts.svg" alt="Chunnt" />
+  <div class="forecast">
+    <section class="forecast__header">
+        <navigation></navigation>
+        <div class="fl w-100 pa2">
+          <h1 class="f2 lh-copy tc">Chunnts z'Bärn äch cho schiffe?</h1>
         </div>
-      </div>
-      <div v-if="!isPushSupported" class="fl w-100 pa2">
-        <p>Leider unterstützt die Browser ke Notifikatione</p>
-      </div>
-  </section>
+    </section>
+    <section class="forecast__content forecast-content">
+        <div v-if="isPushSupported" class="fl w-100 pb2">
+            <img class="db mt1 forecast-content__image" src="~/assets/images/chunnts.svg" alt="Chunnt" />
+            <a class="f6 link dim ph3 pv2 mb2 dib white bg-blue forecast-content__button" @click="updateSubscription()" ahref="#0">{{buttonText}}</a>
+        </div>
+        <div v-if="!isPushSupported" class="fl w-100 pa2">
+          <p>Leider unterstützt die Browser ke Notifikatione</p>
+        </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -78,7 +80,6 @@ export default {
         ]).then(function(result) {
             const isPushEnabled = result[0]
             const isOptedOut = result[1]
-            console.log(result)
             return {
                 isPushEnabled,
                 isOptedOut

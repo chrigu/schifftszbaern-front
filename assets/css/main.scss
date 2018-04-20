@@ -39,9 +39,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     border-collapse: collapse;
     border-spacing: 0; }
   
-  $sky_blue: rgba(88, 198, 255, 1.0);
-  $cloud_gray: rgba(192, 192, 192, 1.0);
-  $night_sky: rgba(10, 20, 100, 1);
+
+  @import 'colors';
+  @import 'chunnts';
   
   /* Fonts */
   @import url("//hello.myfonts.net/count/2a6887");
@@ -155,19 +155,19 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     background: rgba(255,255,255,1.0);
   }
   
-  section {
-    padding-bottom: 2em;
-    p, h1 {
-      margin: 1em 0 0 1em;
-    }
-    h1 {
-      padding: 1em 0 0 0;
-    }
-    .center {
-      width: 18em;
-      margin-top: -32px;
-    }
-  }
+  // section {
+  //   padding-bottom: 2em;
+  //   p, h1 {
+  //     margin: 1em 0 0 1em;
+  //   }
+  //   h1 {
+  //     padding: 1em 0 0 0;
+  //   }
+  //   .center {
+  //     width: 18em;
+  //     margin-top: -32px;
+  //   }
+  // }
   
   // footer {
   //   padding: 1em;

@@ -1,6 +1,8 @@
-# nuxt
+# Schiffts z'Bärn Frontend
 
-> Nuxt.js project
+## Todos
+
+- use tachyons clean up scss
 
 ## Build Setup
 
@@ -9,7 +11,7 @@
 $ npm install # Or yarn install
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ npm run dev -- --spa
 
 # build for production and launch server
 $ npm run build
