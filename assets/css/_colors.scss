@@ -1,7 +1,21 @@
-$sky_blue: rgba(88, 198, 255, 1.0);
-$cloud_gray: rgba(192, 192, 192, 1.0);
-$night_sky: rgba(10, 20, 100, 1);
-
-// lighter hues
-$cloud-gray-lighter: lighten($cloud_gray, 10%);
-$sky-blue-lighter: lighten($sky_blue, 10%);
+$color-raindrop: rgb(240, 240, 240);
+$color-sun: rgba(255, 255, 144, 1);
+$color-moon: rgba(255, 231, 182, 1);
+$color-moon-craters: rgb(242, 231, 182);
+$color-light-blue: rgb(217, 242, 255);
+$color-lighter-gray: rgb(153, 153, 153);
+$color-very-light-gray: rgb(200, 200, 200);
+$color-gray: rgb(153, 153, 153);
+$color-cloud-gray: rgb(136, 136, 136);
+$color-cloud-gray-night: rgb(45, 45, 60);
+$color-sky-blue: rgb(88, 198, 255);
+$color-cloudy-sky: rgb(192, 192, 192);
+$color-night-sky: rgb(10, 20, 70);
+$color-night-sky-bad-weather: rgb(10, 20, 40);
+$color-mountains-night: rgb(29, 43, 77);
+$color-buildings: rgb(128, 128, 128);
+$color-buildings-night: rgb(51, 51, 51);
+$color-muenster-night: rgb(77, 77, 77);
+$color-mountains-cloudy: rgb(200, 200, 200);
+$color-windows-night: rgb(185, 179, 21);
+$color-windows-cloudy: rgb(246, 246, 246);

@@ -43,7 +43,6 @@ module.exports = {
   ],
   css: [
     '@/assets/css/main.scss',
-    '@/assets/css/city.scss',
     'tachyons/css/tachyons.css'
   ],
   // Give apollo module options

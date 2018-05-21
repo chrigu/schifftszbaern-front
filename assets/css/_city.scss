@@ -1,24 +1,22 @@
 $element-list: sun moon clouds rain snow fog;
 
-$color-sun: rgba(255, 255, 144, 1);
-$color-light-blue: rgba(217, 242, 255, 1);
-$color-lighter-gray: rgba(153, 153, 153, 1);
-$color-very-light-gray: rgba(200, 200, 200, 1);
-$color-gray: rgba(153, 153, 153, 1);
-$color-cloud-gray: rgba(136, 136, 136, 1);
+$transition-duration: 0.5s;
 
-
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
+svg {
+    width: 100%;
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+.weather {
+  &--show {
+    display: block;
   }
 }
+
 .rotating {
   transform-origin: 50% 50%;
   animation: rotating 120s linear infinite;
+  transform-box: fill-box;
 }
 
 @each $element in $element-list {
@@ -31,31 +29,75 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
     fill: $color-sun;
 
     &__sunbeams {
-        color: $color-sun;
+        stroke: $color-sun;
     }
+}
+
+.moon {
+
+  &-base {
+      fill: $color-moon;
+  }
+
+  &-crater {
+      fill: $color-moon-craters;
+  }
 }
 
 .clouds {
     fill: $color-cloud-gray;
+    transition: fill $transition-duration ease;
 
     &--light {
         fill: transparentize($color-cloud-gray, 0.5);
+    }
+
+    &--night {
+       fill: $color-cloud-gray-night;
     }
 }
 
 .mountains {
     fill: $color-light-blue;
+    transition: fill $transition-duration ease;
+
+  &--dark {
+    fill: $color-mountains-cloudy;
+  }
+
+  &--night {
+    fill: $color-mountains-night;
+  }
 }
 
 .muenster {
-    fill: $color-lighter-gray
+    fill: $color-lighter-gray;
+    transition: fill $transition-duration ease;
+
+    &--night {
+      fill: $color-muenster-night;
+    }
 }
 
 .buildings {
-    fill: $color-gray;
+    fill: $color-buildings;
+    transition: fill $transition-duration ease;
 
     &__windows {
         fill: $color-light-blue;
+        transition: fill $transition-duration ease;
+
+      &--cloudy {
+        fill: $color-windows-cloudy
+      }
+
+      &--night {
+        fill: $color-windows-night;
+      }
+    }
+
+    &--night {
+      fill: $color-buildings-night
     }
 }
 
@@ -69,8 +111,9 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
     animation-name: drizzleFall, fillOpacity2;
     animation-timing-function: ease-in;
     animation-duration: 1.5s;
+    stroke: $color-raindrop;
 }
-    
+
 .raindrop:nth-child(1) {
     animation-delay: 0s;
 }
@@ -85,7 +128,7 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
 
 .raindrop:nth-child(4) {
     animation-delay: 0.2s;
-}    
+}
 
 .snow {
     &__snowflake {
@@ -97,31 +140,32 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
         fill-opacity: 0;
         animation-name: snowFall, fillOpacity2;
         animation-timing-function: ease-in;
+        fill: $color-raindrop;
 
         &:nth-child(1) {
-            animation-delay: 0s; 
+            animation-delay: 0s;
         }
-          
+
         &:nth-child(2) {
-            animation-delay: 2s; 
+            animation-delay: 2s;
         }
-        
+
         &:nth-child(3) {
             animation-delay: 1.5s;
         }
-        
+
         &:nth-child(4) {
             animation-delay: 0.5s;
         }
-        
+
         &:nth-child(5) {
             animation-delay: 1.9s;
         }
-        
+
         &:nth-child(6) {
             animation-delay: 1s;
         }
-        
+
         &:nth-child(7) {
             animation-delay: 0.1s;
         }
@@ -139,20 +183,23 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
     &:nth-of-type(1) {
         animation-duration: 18s;
         animation-name: fogMovement1;
+        fill: transparentize(darken($color-very-light-gray, 10%), 0.6);
     }
 
     &:nth-of-type(2) {
         animation-duration: 25s;
         animation-name: fogMovement2;
+        fill: transparentize(darken($color-very-light-gray, 20%), 0.3);
     }
 
     &:nth-of-type(3) {
         animation-duration: 31s;
         animation-name: fogMovement3;
+        fill: transparentize(darken($color-very-light-gray, 10%), 0.1);
     }
 }
 
-// animations 
+// animations
 
 @keyframes drizzleFall {
     0% {
@@ -166,13 +213,13 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
 
 @keyframes snowFall {
     0% {
-      transform: translate(0, 0); 
+      transform: translate(0, 0);
     }
-  
+
     100% {
-      transform: translate(130px, 216px); 
-    } 
-    
+      transform: translate(130px, 216px);
+    }
+
 }
 
 @keyframes fillOpacity2 {
@@ -232,4 +279,28 @@ $color-cloud-gray: rgba(136, 136, 136, 1);
     100% {
         transform: translate(0, 0);
     }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+// elements
+.controls {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 2rem;
+
+  &__toggle {
+    padding-right: 2rem;
+
+    &--night {
+      color: $color-very-light-gray
+    }
+  }
 }

@@ -51,12 +51,11 @@
 // states > 100 are night states
 
 <template>
-<div class="main" v-bind:class="{ 'main--bad-weather': !this.sun,
-                                  'main--night': this.night }">
+<div class="weather-container" v-bind:class="{'weather-container--bad-weather': this.greySky,
+                                              'weather-container--night': this.night,
+                                              'weather-container--night-bad': this.night && this.greySky}">
   <navigation></navigation>
-  <div class="block">
-    <div class="centered">
-      <p class="current-situation"></p>
+  <section class="city-wrapper flex justify-content">
       <city v-if="gotData"
             v-bind="{
               sun: sun,
@@ -66,11 +65,13 @@
               rain: rain,
               snow: snow,
               clouds: clouds,
-              'light-clouds': lightClouds
-            }"></city>
+              lightClouds: lightClouds,
+              ready: gotData
+            }"
+            class="w-50 db city-wrapper__city"
+            ></city>
       <p class="loading-message" v-if="!gotData">Bi no am Lade, gäu</p>
-    </div>
-  </div>
+  </section>
 
   <section class="info">
     <div class="arrow"></div>
@@ -90,6 +91,7 @@
 </template>
 
 <script>
+
 
 import City from '~/components/City.vue'
 import Navigation from '~/components/Navigation.vue'
@@ -111,7 +113,7 @@ export default {
     allWeatherLocations: function(val) {
       if (this.allWeatherLocations.length > 0) {
         this.gotData = true
-      } 
+      }
     }
   },
   computed: {
@@ -245,6 +247,9 @@ export default {
         default:
           return false
       }
+    },
+    greySky: function() {
+      return this.rain || this.snow || this.fog || this.clouds
     }
   },
   methods: {
@@ -302,4 +307,4 @@ export default {
   }
 }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+

@@ -1,9 +1,9 @@
 .chunnts {
     transition: background-color 0.5s ease;
-    background-color: $cloud-gray-lighter;
+    background-color: $color-lighter-gray;
 
     &--subscribed {
-        background-color: $sky-blue-lighter;
+        background-color: $color-sky-blue;
     }
 }
 
