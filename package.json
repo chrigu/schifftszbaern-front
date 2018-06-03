@@ -22,6 +22,7 @@
     "apollo-link-ws": "^1.0.7",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
+    "gsap": "^2.0.0",
     "nuxt": "^1.0.0",
     "subscriptions-transport-ws": "^0.9.7",
     "tachyons": "^4.9.1"

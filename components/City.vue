@@ -1,6 +1,6 @@
 <template>
   <div id="city">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 582 673" xml:space="preserve" class="weather" v-bind:class="{'weather--show': this.ready}">
+    <svg class="cityscape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 582 673" xml:space="preserve" v-bind:class="{'cityscape--show': this.ready}">
       <defs>
       <filter id="fogBlurFilter" x="0" y="0">
       <feGaussianBlur in="SourceGraphic" stdDeviation="2" />

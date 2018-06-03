@@ -2,14 +2,188 @@ $element-list: sun moon clouds rain snow fog;
 
 $transition-duration: 0.5s;
 
-svg {
-    width: 100%;
-    display: none;
-  }
-
-.weather {
+.cityscape {
+  width: 100%;
+  display: none;
   &--show {
     display: block;
+  }
+}
+
+.berne {
+
+  & > .sun {
+      fill: $color-sun;
+
+      &__sunbeams {
+          stroke: $color-sun;
+      }
+  }
+
+  & > .moon {
+
+    &-base {
+        fill: $color-moon;
+    }
+
+    &-crater {
+        fill: $color-moon-craters;
+    }
+  }
+
+  .clouds {
+      fill: $color-cloud-gray;
+      transition: fill $transition-duration ease;
+
+      &--light {
+          fill: transparentize($color-cloud-gray, 0.5);
+      }
+
+      &--night {
+         fill: $color-cloud-gray-night;
+      }
+  }
+
+  .mountains {
+      fill: $color-light-blue;
+      transition: fill $transition-duration ease;
+
+    &--dark {
+      fill: $color-mountains-cloudy;
+    }
+
+    &--night {
+      fill: $color-mountains-night;
+    }
+  }
+
+  .muenster {
+      fill: $color-lighter-gray;
+      transition: fill $transition-duration ease;
+
+      &--night {
+        fill: $color-muenster-night;
+      }
+  }
+
+  .buildings {
+      fill: $color-buildings;
+      transition: fill $transition-duration ease;
+
+      &__windows {
+          fill: $color-light-blue;
+          transition: fill $transition-duration ease;
+
+        &--cloudy {
+          fill: $color-windows-cloudy
+        }
+
+        &--night {
+          fill: $color-windows-night;
+        }
+      }
+
+      &--night {
+        fill: $color-buildings-night
+      }
+  }
+
+  .raindrop {
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      transform-origin: 50% 50%;
+      animation-duration: 18s;
+      animation-direction: normal;
+      fill-opacity: 0;
+      animation-name: drizzleFall, fillOpacity2;
+      animation-timing-function: ease-in;
+      animation-duration: 1.5s;
+      stroke: $color-raindrop;
+  }
+
+  .raindrop:nth-child(1) {
+      animation-delay: 0s;
+  }
+
+  .raindrop:nth-child(2) {
+      animation-delay: 0.4s;
+  }
+
+  .raindrop:nth-child(3) {
+      animation-delay: 0.9s;
+  }
+
+  .raindrop:nth-child(4) {
+      animation-delay: 0.2s;
+  }
+
+  .snow {
+      &__snowflake {
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+          transform-origin: 50% 50%;
+          animation-duration: 4s;
+          animation-direction: normal;
+          fill-opacity: 0;
+          animation-name: snowFall, fillOpacity2;
+          animation-timing-function: ease-in;
+          fill: $color-raindrop;
+
+          &:nth-child(1) {
+              animation-delay: 0s;
+          }
+
+          &:nth-child(2) {
+              animation-delay: 2s;
+          }
+
+          &:nth-child(3) {
+              animation-delay: 1.5s;
+          }
+
+          &:nth-child(4) {
+              animation-delay: 0.5s;
+          }
+
+          &:nth-child(5) {
+              animation-delay: 1.9s;
+          }
+
+          &:nth-child(6) {
+              animation-delay: 1s;
+          }
+
+          &:nth-child(7) {
+              animation-delay: 0.1s;
+          }
+      }
+  }
+
+  .fog {
+      fill: $color-very-light-gray;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      transform-origin: 50% 50%;
+      animation-direction: normal;
+      animation-timing-function: ease-in-out;
+
+      &:nth-of-type(1) {
+          animation-duration: 18s;
+          animation-name: fogMovement1;
+          fill: transparentize(darken($color-very-light-gray, 10%), 0.6);
+      }
+
+      &:nth-of-type(2) {
+          animation-duration: 25s;
+          animation-name: fogMovement2;
+          fill: transparentize(darken($color-very-light-gray, 20%), 0.3);
+      }
+
+      &:nth-of-type(3) {
+          animation-duration: 31s;
+          animation-name: fogMovement3;
+          fill: transparentize(darken($color-very-light-gray, 10%), 0.1);
+      }
   }
 }
 
@@ -25,179 +199,6 @@ svg {
     }
 }
 
-.sun {
-    fill: $color-sun;
-
-    &__sunbeams {
-        stroke: $color-sun;
-    }
-}
-
-.moon {
-
-  &-base {
-      fill: $color-moon;
-  }
-
-  &-crater {
-      fill: $color-moon-craters;
-  }
-}
-
-.clouds {
-    fill: $color-cloud-gray;
-    transition: fill $transition-duration ease;
-
-    &--light {
-        fill: transparentize($color-cloud-gray, 0.5);
-    }
-
-    &--night {
-       fill: $color-cloud-gray-night;
-    }
-}
-
-.mountains {
-    fill: $color-light-blue;
-    transition: fill $transition-duration ease;
-
-  &--dark {
-    fill: $color-mountains-cloudy;
-  }
-
-  &--night {
-    fill: $color-mountains-night;
-  }
-}
-
-.muenster {
-    fill: $color-lighter-gray;
-    transition: fill $transition-duration ease;
-
-    &--night {
-      fill: $color-muenster-night;
-    }
-}
-
-.buildings {
-    fill: $color-buildings;
-    transition: fill $transition-duration ease;
-
-    &__windows {
-        fill: $color-light-blue;
-        transition: fill $transition-duration ease;
-
-      &--cloudy {
-        fill: $color-windows-cloudy
-      }
-
-      &--night {
-        fill: $color-windows-night;
-      }
-    }
-
-    &--night {
-      fill: $color-buildings-night
-    }
-}
-
-.raindrop {
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    transform-origin: 50% 50%;
-    animation-duration: 18s;
-    animation-direction: normal;
-    fill-opacity: 0;
-    animation-name: drizzleFall, fillOpacity2;
-    animation-timing-function: ease-in;
-    animation-duration: 1.5s;
-    stroke: $color-raindrop;
-}
-
-.raindrop:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.raindrop:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.raindrop:nth-child(3) {
-    animation-delay: 0.9s;
-}
-
-.raindrop:nth-child(4) {
-    animation-delay: 0.2s;
-}
-
-.snow {
-    &__snowflake {
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        transform-origin: 50% 50%;
-        animation-duration: 4s;
-        animation-direction: normal;
-        fill-opacity: 0;
-        animation-name: snowFall, fillOpacity2;
-        animation-timing-function: ease-in;
-        fill: $color-raindrop;
-
-        &:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        &:nth-child(2) {
-            animation-delay: 2s;
-        }
-
-        &:nth-child(3) {
-            animation-delay: 1.5s;
-        }
-
-        &:nth-child(4) {
-            animation-delay: 0.5s;
-        }
-
-        &:nth-child(5) {
-            animation-delay: 1.9s;
-        }
-
-        &:nth-child(6) {
-            animation-delay: 1s;
-        }
-
-        &:nth-child(7) {
-            animation-delay: 0.1s;
-        }
-    }
-}
-
-.fog {
-    fill: $color-very-light-gray;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    transform-origin: 50% 50%;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-
-    &:nth-of-type(1) {
-        animation-duration: 18s;
-        animation-name: fogMovement1;
-        fill: transparentize(darken($color-very-light-gray, 10%), 0.6);
-    }
-
-    &:nth-of-type(2) {
-        animation-duration: 25s;
-        animation-name: fogMovement2;
-        fill: transparentize(darken($color-very-light-gray, 20%), 0.3);
-    }
-
-    &:nth-of-type(3) {
-        animation-duration: 31s;
-        animation-name: fogMovement3;
-        fill: transparentize(darken($color-very-light-gray, 10%), 0.1);
-    }
-}
 
 // animations
 

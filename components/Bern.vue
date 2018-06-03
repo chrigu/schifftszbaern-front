@@ -73,15 +73,13 @@
       <p class="loading-message" v-if="!gotData">Bi no am Lade, gäu</p>
   </section>
 
-  <section class="info">
-    <div class="arrow"></div>
+  <section class="info pv2">
     <div class="tc">
       <h1>Schiffts z'Bärn?</h1>
       <p>{{ schifftsMessage }} u es isch {{ schifftsData.temperature }}°C</p>
     </div>
   </section>
   <footer class="footer">
-    <div class="arrow footer__arrow"></div>
     <ul class="link_list footer__list">
         <li class="link_list__item">Uf <a href="http://www.twitter.com/schifftszbaern">Twitter</a></li>
         <li class="link_list__item">Uf <a href="https://github.com/chrigu/schifftszbaern">GitHub</a></li>

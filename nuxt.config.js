@@ -3,14 +3,19 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'nuxt',
+    title: 'Schiffts z\'Bärn?',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: 'Schiffts z\'Bärn?' },
+      { name: 'msapplication-TileColor', content: '#da532c' },
+      { name: 'theme-color', content: '#ffffff' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/png', href: '@/assets/favicons/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', href: '@/assets/favicons/favicon-16x16.png' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '@/assets/favicons/apple-touch-icon.png' },
+      { rel: 'mask-icon', href: '@/assets/favicons/safari-pinned-tab.svg', color: '#5bbad5' }
     ]
   },
   /*

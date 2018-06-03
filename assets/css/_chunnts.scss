@@ -14,3 +14,73 @@
         margin-right: auto;
     }
 }
+
+
+$blue-sky: rgba(88, 198, 255, 1.0);
+$dark_gray: rgba(124, 124, 124, 1.0);
+
+
+.forecast__container {
+  background-color: $dark_gray;
+  min-height: 100vh
+}
+
+.subscribe-animation {
+  width: 100vw;
+  height: 100vh;
+}
+
+#sun, .sunbeam {
+  display: hidden;
+}
+
+/* Buttons styles start */
+.button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+.button:active {
+    transform: scale(0.99);
+}
+
+.sun-button {
+  background: $blue-sky;
+  color: #ffffff;
+
+  &:hover, &:focus {
+   background: darken($blue-sky, 30%);
+ }
+}
+
+.rain-button {
+  background: $dark_gray;
+  color: #ffffff;
+
+  &:hover, &:focus {
+   background: darken($dark_gray, 30%);
+ }
+}
+/* Button styles end */
+
+.buttons {
+  text-align: center;
+}
+
+.isHidden {
+  display: none;
+}
+
+
